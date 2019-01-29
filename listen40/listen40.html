@@ -1,0 +1,29 @@
+<html>
+<head><meta name="viewport" content="width=device-width"></head>
+<body>
+<div style="position:fixed; text-align:center; width:100%; font-size:100%;">
+Welcome MKZ4
+<div id="message1"></div>
+<div id="message2"></div>
+</div>
+<script type="text/javascript">
+document.body.style.height = document.body.clientHeight + 'px';
+document.body.style.width = document.body.clientWidth + 'px';
+document.getElementsByTagName("html")[0].style.height = document.body.clientHeight + 'px';
+document.getElementsByTagName("html")[0].style.width = document.body.clientWidth + 'px';
+var startX = 0; var startY = 0;
+document.body.ontouchstart = function(event) {
+    startX = event.touches[0].clientX;
+    startY = event.touches[0].clientY;
+    document.getElementsById("message1").innerHTML = "start x=" + startX + "y=" + startY;
+};
+document.body.ontouchmove = function(event) {
+    var x = parseInt(event.touches[0].clientX - startX);
+    var y = parseInt(event.touches[0].clientY - startY);
+    document.getElementsById("message2").innerHTML = "move x=" + x + "y=" + y;
+};
+document.body.ontouchend = function(event) {
+};
+</script>
+</body>
+</html>
